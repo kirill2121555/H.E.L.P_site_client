@@ -1,0 +1,31 @@
+.nav {
+
+  grid-area: n;
+
+  padding: 0px;
+
+}
+
+.item {
+  color: blue;
+  text-decoration: none;
+  padding: 25px;
+}
+
+.item a.active {
+  color: gold;
+
+}
+
+.pi {
+  width: 35px;
+}
+
+.pie {
+  width: 35px;
+}
+
+.qwe {
+  background: #099;
+  float: left;
+}
