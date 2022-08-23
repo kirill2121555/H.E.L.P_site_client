@@ -1,5 +1,4 @@
 import React from "react";
-import s from './module.css'
 import { NavLink } from "react-router-dom";
 
 const posthelp = (props) => {

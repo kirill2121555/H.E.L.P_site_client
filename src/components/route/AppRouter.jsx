@@ -1,6 +1,6 @@
 import Error from './../Error/error'
 import React from 'react'
-import { Route , Routes, Navigate} from 'react-router-dom';
+import { Route , Routes} from 'react-router-dom';
 import { useContext } from 'react'
 import { Context } from '../..'
 import { authRoutes, publicRoutes } from './route'
@@ -11,11 +11,8 @@ import { observer } from 'mobx-react-lite'
 
 
 const AppRouter= observer(()=>{
-    let a=true
 const{user}=useContext(Context)
-   if(user.isAuth==false){
-    a= false
-   }
+   
 
 return(
         <Routes> 
