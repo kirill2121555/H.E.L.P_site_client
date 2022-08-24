@@ -5,8 +5,6 @@ import { logout } from './../http/userApi'
 import { observer } from "mobx-react-lite";
 import { NavLink } from "react-router-dom";
 
-
-
 const Logout = observer(() => {
     const user = useContext(Context)
 
@@ -15,7 +13,6 @@ const Logout = observer(() => {
         window.location.reload()
         user.setUser({})
         user.setIsAuth(false)
-
     }
 
     return <div>

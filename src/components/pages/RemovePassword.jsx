@@ -1,15 +1,10 @@
-
-
-
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import s from './Header.module.css'
-import { Context } from "./../../index";
 import { NavLink, useParams } from "react-router-dom";
 import { observer } from "mobx-react-lite";
 import { removepassvord } from "../http/feth";
 
 const RemovePassword = observer(() => {
-    const user = useContext(Context)
     const { id } = useParams()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -19,7 +14,7 @@ const RemovePassword = observer(() => {
             let data;
             data = await removepassvord(email, password, id);
         } catch (e) {
-            alert(e.response)
+            console.log('error')
         }
     }
 
@@ -49,9 +44,8 @@ const RemovePassword = observer(() => {
                 </div>
             </div>
         </div>
-
     </div>
-
-})
+}
+)
 
 export default RemovePassword

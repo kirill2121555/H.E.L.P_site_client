@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { NavLink } from 'react-router-dom';
-import { $authHost } from '../../http';
-import { addPointhelp, requesetaddPointhelp } from "../../http/feth";
-import g from './../../posthelper/module.css'
+import { requesetaddPointhelp } from "../../http/feth";
+import style from './../../posthelper/module.css'
 
 const RequesеForAddPH = (props) => {
-
 
     const [name, setName] = useState('')
     const [nameBoss, setNameBoss] = useState('')
@@ -20,26 +18,17 @@ const RequesеForAddPH = (props) => {
     const click = async () => {
         try {
             let data;
-            data = await requesetaddPointhelp(name, nameBoss, phone,address, city,email,region, listThings, description);
+            data = await requesetaddPointhelp(name, nameBoss, phone, address, city, email, region, listThings, description);
             alert(data)
             window.location.reload()
         } catch (e) {
-            alert('222')
+            console.log('error')
         }
     }
 
-
-
-
-
-
-
-
-
     return (
         <div className='brd'>
- Заполните таблицу.
- 
+            Заполните таблицу.
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Название</label>
                 <input type="email" class="form-control" id="exampleFormControlInput1"

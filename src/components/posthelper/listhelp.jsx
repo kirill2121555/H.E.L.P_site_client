@@ -1,5 +1,4 @@
 import React from "react";
-import PostHelp from "./posthelpa";
 import { useState } from "react";
 import { useEffect } from "react";
 import { getAllPointHelp } from "../http/feth";
@@ -48,11 +47,14 @@ const ListHelp = (props) => {
         ></input>
         <button class="btn btn-outline-success" type="submit" onClick={() => Setindicate(true)}>Поиск</button>
       </div>
-      {posts.length !== 0 ?
+      {posts.length !== 0
+        ?
         <PostsNeedHelp
           posts={currentPosts}
-        /> :
-        <h1>Совпаденпия не найдены</h1>}
+        />
+        :
+        <h1>Совпаденпия не найдены</h1>
+      }
       <Pagination
         postOnPage={postOnPage}
         totalPost={posts.length}

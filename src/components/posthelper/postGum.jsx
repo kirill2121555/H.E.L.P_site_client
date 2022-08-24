@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import PostHelp from "./posthelpa";
-
 
 const PostsNeedHelp = (props) => {
     return (

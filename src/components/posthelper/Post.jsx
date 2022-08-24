@@ -6,9 +6,7 @@ import like from './../../img/like.png'
 import dislike from './../../img/dislike.png'
 import likeactiv from './../../img/likeactive.png'
 import dislikeactive from './../../img/dislikeactive.png'
-import s from './module.css'
 import { Context } from '../..';
-
 
 const Post = (props) => {
      const { id } = useParams()
@@ -22,30 +20,28 @@ const Post = (props) => {
           fetchOneDevice(id).then(data => setDevise(data))
           getCommentss(id).then(data => setComments(data))
           getmark(id).then(data => setMark(data))
-
      }, [])
+
      const addComment = async () => {
           const data = new Date()
           await postComment(id, comment, data)
           setComment('')
           window.location.reload()
      }
-
      const marklike = async () => {
-          if(user.user.isAuth){
-          await grade(id, 'like')
-          window.location.reload()
+          if (user.user.isAuth) {
+               await grade(id, 'like')
+               window.location.reload()
           }
-          else(alert('Чтобы оценить пост ввойдите в свой аккаунт'))
+          else (alert('Чтобы оценить пост ввойдите в свой аккаунт'))
      }
      const markdislike = async () => {
-          if(user.user.isAuth){
-          await grade(id, 'dislike')
-          window.location.reload()
+          if (user.user.isAuth) {
+               await grade(id, 'dislike')
+               window.location.reload()
+          }
+          else (alert('Чтобы оценить пост ввойдите в свой аккаунт'))
      }
-          else(alert('Чтобы оценить пост ввойдите в свой аккаунт'))
-     }
-
 
      return (
           <div>
@@ -89,8 +85,8 @@ const Post = (props) => {
                     </div>
                     :
                     ' '
-               }              
-                    {comments?.map(comment => <Comment comment={comment} />)}
+               }
+               {comments?.map(comment => <Comment comment={comment} />)}
           </div>
      );
 }

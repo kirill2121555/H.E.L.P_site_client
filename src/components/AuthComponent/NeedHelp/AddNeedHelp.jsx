@@ -1,13 +1,9 @@
 import React, { useState } from "react";
 import { NavLink } from 'react-router-dom';
 import { $authHost } from '../../http';
-import g from './../../posthelper/module.css'
+import style from './../../posthelper/module.css'
 
 const AddNeedHelp = (props) => {
-
-    const add = async (name, secondName, phone, city, listThings, description) => {
-        const de = await $authHost.post('api/addNeedHelp', { name, secondName, phone, city, listThings, description })
-    }
 
     const [name, setName] = useState('')
     const [city, setCity] = useState('')
@@ -16,13 +12,15 @@ const AddNeedHelp = (props) => {
     const [listThings, setlistThings] = useState('')
     const [secondName, setsecondName] = useState('')
 
+    const add = async (name, secondName, phone, city, listThings, description) => {
+        await $authHost.post('api/addNeedHelp', { name, secondName, phone, city, listThings, description })
+    }
     const click = async () => {
         try {
-            let data;
-            data = await add(name, secondName, phone, city, listThings, description);
+            await add(name, secondName, phone, city, listThings, description);
             window.location.reload()
         } catch (e) {
-            //alert(e.response.data.message)
+            console.log('erorr')
         }
     }
 
@@ -72,7 +70,8 @@ const AddNeedHelp = (props) => {
             <NavLink to={'/nha'}>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <button class="btn btn-primary me-md-2" type="button" onClick={click}>Добавить</button>
-                </div></NavLink>
+                </div>
+            </NavLink>
         </div>
     );
 }

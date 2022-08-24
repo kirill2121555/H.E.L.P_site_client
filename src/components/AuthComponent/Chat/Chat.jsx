@@ -1,21 +1,14 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Context } from '../../..';
-import { io } from "socket.io-client";
 import { useParams } from 'react-router-dom';
 import { getDialog } from '../../http/feth';
-
 import socket from './socket';
-
-
-
 
 const Chat = () => {
     const { id } = useParams()
     const { user } = useContext(Context)
     const [messages, setMessages] = useState([]);
     const [value, setValue] = useState('');
-    const [connected, setConnected] = useState(false);
-    const [username, setUsername] = useState(user.nick)
     useEffect(() => {
        getDialog(id).then(data=>setMessages(data))
 
@@ -23,10 +16,9 @@ const Chat = () => {
             const message = JSON.parse(data)
             setMessages(prev => [message, ...prev])
         });
-
     }, []);
 
-    const s = () => {
+    const sendmessage = () => {
         socket.emit('message',
             {
                 message: value,
@@ -38,16 +30,12 @@ const Chat = () => {
         setValue('')
     }
 
-
-
-
     return (
         <div className="center">
             <div>
                 <div className="form">
                     <input value={value} onChange={e => setValue(e.target.value)} type="text" />
-                    <button onClick={s}>Отправить</button>
-
+                    <button onClick={sendmessage}>Отправить</button>
                 </div>
                 <div className='ooo'>
                     <div >

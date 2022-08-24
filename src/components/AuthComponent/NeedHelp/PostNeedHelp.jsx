@@ -1,10 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-
 const PostNeedHelp = (props) => {
 
-    console.log(props.post)
     return (
         <div>
             <div>

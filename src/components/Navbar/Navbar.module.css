@@ -1,9 +1,6 @@
 .nav {
-
   grid-area: n;
-
   padding: 0px;
-
 }
 
 .item {
@@ -14,7 +11,6 @@
 
 .item a.active {
   color: gold;
-
 }
 
 .pi {

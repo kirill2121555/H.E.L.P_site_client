@@ -1,17 +1,15 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { deleteasistpost } from "../../http/feth";
-import a from './../../posthelper/module.css'
 
 const ListAssist = (props) => {
   const deletepost = async () => {
     try {
       const a = props.person._id
-      let data;
-      data = await deleteasistpost(a);
+      await deleteasistpost(a);
       window.location.reload()
     } catch (e) {
-      alert(e.response)
+      console.log('error')
     }
   }
 

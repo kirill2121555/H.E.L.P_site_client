@@ -1,24 +1,20 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { deleteonepost } from "../../http/feth";
-import a from './../../posthelper/module.css'
-
+import style from './../../posthelper/module.css'
 
 const ListNeedhelp = (props) => {
 
-  const deletepost = async (id) => {
+  const deletepost = async () => {
     try {
-      const a = props.nh._id
-      let data;
-      data = await deleteonepost(a);
+      const id = props.nh._id
+      await deleteonepost(id);
       window.location.reload()
     } catch (e) {
-      alert(e.response)
+      console.log('error')
     }
-
   }
 
-  console.log(props)
   return (
     <div>
       <div class="card" >
@@ -36,7 +32,6 @@ const ListNeedhelp = (props) => {
       </div>
       <br></br>
     </div>
-
   )
 }
 export default ListNeedhelp

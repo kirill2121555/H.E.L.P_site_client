@@ -1,7 +1,6 @@
-.header{
-    grid-area: h;
-  
-  }
+.header {
+  grid-area: h;
+}
 
 
 .clip {
@@ -9,62 +8,48 @@
   -webkit-line-clamp: 3;
   overflow: hidden;
   width: 1200px;
-  -webkit-box-orient: vertical;  
-
-  }
-
-  .clipp {
-    display: -webkit-box;
-    overflow: hidden;
-    width: 1150px;
-    -webkit-box-orient: vertical;
-  
-  
-    }
-
-    .f{
-      padding: 25px;
-    
-    }
-.pictur{
-  
-  width:20%;
-  display:block;
- 
-}
-.picturfull{
-  
-  width:100%;
-  display:block;
- 
+  -webkit-box-orient: vertical;
 }
 
+.clipp {
+  display: -webkit-box;
+  overflow: hidden;
+  width: 1150px;
+  -webkit-box-orient: vertical;
+}
 
+.f {
+  padding: 25px;
+}
 
+.pictur {
+  width: 20%;
+  display: block;
 
-    .test{
-   background-color: blue;
-      width:1200px;
-  }
+}
 
+.picturfull {
+  width: 100%;
+  display: block;
+}
 
-  .brd {
-     /* Параметры границы */
-    padding: 10px; /* Поля вокруг текста */
-    outline: 5px solid aqua; /* Чёрная рамка */
-    border-radius: 10px; /* Радиус скругления */
+.test {
+  background-color: blue;
+  width: 1200px;
+}
 
-  }
+.brd {
+  padding: 10px;
+  outline: 5px solid aqua;
+  border-radius: 10px;
+}
 
+.pict {
+  width: 35px;
+  height: 35px;
+}
 
-  .pict{
-   
-   width: 35px;
-   height: 35px;
-  }
-
-  
-  .p{
-   width: 35px;
-   height: 35px;
-  }
+.p {
+  width: 35px;
+  height: 35px;
+}

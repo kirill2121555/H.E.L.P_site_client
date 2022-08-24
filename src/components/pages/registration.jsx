@@ -1,16 +1,12 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import s from './Header.module.css'
-import { Context } from "./../../index";
 import { registration } from './../http/userApi'
 import { observer } from "mobx-react-lite";
 
-
 const Registration = observer(() => {
-  const user = useContext(Context)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [nick, setNick] = useState('')
-
 
   const click = async () => {
     try {
@@ -20,18 +16,14 @@ const Registration = observer(() => {
       alert('Перейлите на почту и подтвердите аккаунт')
       window.location.reload()
     } catch (e) {
-      alert(e.response)
+      console.log('error')
     }
-
   }
 
   return <div className="center">
     <div className={s.page}>
-
       <div className={s.head}>
-
         <div className='message'>
-
           <div>
             <form>
               <div class="mb-3">
@@ -57,7 +49,6 @@ const Registration = observer(() => {
               </div>
             </form>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={click}>Зарегистрироваться</button>
-
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
@@ -74,11 +65,9 @@ const Registration = observer(() => {
           </div>
         </div>
       </div>
-
     </div>
   </div>
-
-
-})
+}
+)
 
 export default Registration

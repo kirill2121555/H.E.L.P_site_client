@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import PostCanHelp from "./postcanhelpa";
 import { getAsistant } from '../http/feth';
 import Pagination from "../elements/Pagination";
 import CanHelpPost from "./canhelppost";
@@ -14,17 +13,13 @@ const CanHelp = (props) => {
   useEffect(() => {
     getAsistant(textsearch).then(data => setPosts(data))
     Setindicate('')
-
   }, [indicate])
-
 
   const postPerPage = page * postOnPage
   const firstpostIndex = postPerPage - postOnPage
   const currentPosts = posts.slice(firstpostIndex, postPerPage)
-
   const paginat = pageNumber => setPage(pageNumber)
 
-  console.log(postOnPage)
   return (
     <div>
       <div class="d-flex" role="search">
@@ -35,15 +30,19 @@ const CanHelp = (props) => {
         <button class="btn btn-outline-success" type="submit" onClick={() => Setindicate(true)}>Поиск</button>
       </div>
       <div>
-        {posts.length!==0?
-        <div> <CanHelpPost
-          posts={currentPosts}
-        />
-        <Pagination
-          postOnPage={postOnPage}
-          totalPost={posts.length}
-          paginate={paginat}
-        /></div>:<h1>Ничего не найдено</h1>}
+        {posts.length !== 0
+          ?
+          <div> <CanHelpPost
+            posts={currentPosts}
+          />
+            <Pagination
+              postOnPage={postOnPage}
+              totalPost={posts.length}
+              paginate={paginat}
+            /></div>
+          :
+          <h1>Ничего не найдено</h1>
+        }
       </div>
     </div>
   );

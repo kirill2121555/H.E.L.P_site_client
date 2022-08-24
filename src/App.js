@@ -5,7 +5,7 @@ import AppRouter from './components/route/AppRouter';
 import { useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import { Context } from '.';
-import { check, getnick } from './components/http/userApi';
+import { check } from './components/http/userApi';
 import { Spinner } from "react-bootstrap";
 import Footer from './components/Navbar/Footer';
 
@@ -27,15 +27,12 @@ const App = observer(() => {
   }
 
   return (
-      <div className="app-wrapper">
-
-        <Navbar />
-        <div className='height'> <AppRouter className='height'/></div>
-        <Footer/>
-
-      </div>
+    <div className="app-wrapper">
+      <Navbar />
+      <div className='height'> <AppRouter className='height' /></div>
+      <Footer />
+    </div>
   );
-
 }
 )
 export default App;

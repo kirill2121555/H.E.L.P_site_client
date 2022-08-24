@@ -24,28 +24,20 @@ export const fetchAllNeedHElp = async (text) => {
     return data
 }
 
-
-
 export const getAsistant = async (text) => {
     const { data } = await $host.get(`api/getAsistant?text=${text}`)
     return data
 }
-
 
 export const fetchAssist = async (id) => {
     const { data } = await $host.get('api/getOneAsistant/' + id)
     return data
 }
 
-
-
-
-
 export const updatepost = async (name) => {
     const { data } = await $authHost.post('api/up', { name })
     return data
 }
-
 
 export const fetchOneCanHelp = async (id) => {
     const { data } = await $host.get('api/getOneAsistant/' + id)
@@ -57,13 +49,10 @@ export const getAllPointHelp = async (text,sort) => {
     return data
 }
 
-
 export const tryremovepassvord = async (email) => {
     const dta = await $host.post('api/tryremovepassword', { email })
     return dta
 }
-
-
 
 export const removepassvord = async (email, password, id) => {
     const dta = await $host.post('api/removepassword', { email, password, id })
@@ -89,7 +78,6 @@ export const getNHP = async () => {
     return (dta.data)
 }
 
-
 export const postComment = async (id, text, timeCreate) => {
     const data = await $authHost.post('api/addComment/' + id, { text, timeCreate })
     return (data)
@@ -103,6 +91,7 @@ export const addPointhelp = async (name, nameBoss, phone, address, city, email, 
     const data = await $authHost.post('api/addPointHelp', { name, nameBoss, phone, address, city, email, region, listThings, description })
     return (data)
 }
+
 export const requesetaddPointhelp = async (name, nameBoss, phone, address, city, email, region, listThings, description) => {
     const { data } = await $authHost.post('api/requesetaddPointHelp', { name, nameBoss, phone, address, city, email, region, listThings, description })
     console.log(data)

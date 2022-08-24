@@ -2,11 +2,9 @@ import React, { useContext, useEffect, useState } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import { Context } from '../..';
 import { fetchAssist } from './../http/feth'
-import g from './module.css'
 
 const FullCanHelp = (props) => {
     const user = useContext(Context)
-
     const { id } = useParams()
     const [devise, setDevise] = useState([])
 
@@ -26,14 +24,20 @@ const FullCanHelp = (props) => {
                             <p><small>Email: {devise.email}</small></p>
                             <p><small>Телефое: {devise.phone} </small></p>
                             <p><small>Адрес: {devise.city} </small></p>
-                            {devise.picture ?
-                                <div><img className="picturfull" src={`https://serverrr.vercel.app/images/` + devise.picture} alt="КАРТИНКА"></img>
-                                </div> : ' '
+                            {devise.picture
+                                ?
+                                <div>
+                                    <img className="picturfull" src={`https://serverrr.vercel.app/images/` + devise.picture} alt="КАРТИНКА"></img>
+                                </div>
+                                :
+                                ' '
                             }
-                            {user.user.isAuth ? (
+                            {user.user.isAuth
+                                ?
                                 <NavLink to={'/chat/' + devise.autorid}><button type="button" class="btn btn-primary">Написать</button></NavLink>
-                            ) :
-                                <button type="button" class="btn btn-primary">Чтобы написать пользователю нужно заригистирироваться</button>}
+                                :
+                                <button type="button" class="btn btn-primary">Чтобы написать пользователю нужно заригистирироваться</button>
+                            }
                         </div>
                     </div>
                 </div>

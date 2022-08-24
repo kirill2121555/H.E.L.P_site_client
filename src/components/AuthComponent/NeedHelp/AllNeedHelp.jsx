@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Pagination from '../../elements/Pagination';
-import { fetchAllNeedHElp, fetchAssist } from '../../http/feth';
-import g from './../../posthelper/module.css'
+import { fetchAllNeedHElp } from '../../http/feth';
+import style from './../../posthelper/module.css'
 import PostsNeedHelp from './PostsNeedHelp';
 
 const AllNeedHelp = (props) => {

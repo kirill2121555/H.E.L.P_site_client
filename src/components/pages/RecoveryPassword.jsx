@@ -1,28 +1,19 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import s from './Header.module.css'
-import { Context } from "./../../index";
 import { observer } from "mobx-react-lite";
 import { tryremovepassvord } from "../http/feth";
 
-
-
 const RecoveryPassword = observer(() => {
-  const user = useContext(Context)
   const [email, setEmail] = useState('')
 
   const click = async () => {
     try {
-      let data;
       alert('Перейлите на почту и подтвердите аккаунт')
-
-      data = await tryremovepassvord(email);
+      await tryremovepassvord(email);
     } catch (e) {
-      //alert(e.response)
+      console.log('error')
     }
   }
-
-
-
 
   return <header className={s.hea}>
     <div className={s.page}>
@@ -37,7 +28,6 @@ const RecoveryPassword = observer(() => {
           </div>
         </form>
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={click}>Востановить пароль</button>
-
       </div>
     </div>
   </header>

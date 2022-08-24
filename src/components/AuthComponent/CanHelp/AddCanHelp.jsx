@@ -1,17 +1,12 @@
-import axios from "axios";
 import React, { useState } from "react";
-import { useCallback } from "react";
-import { useRef } from "react";
 import { NavLink } from 'react-router-dom';
-import { $authHost, $host } from '../../http';
+import { $authHost, } from '../../http';
 import g from './../../posthelper/module.css'
 
 const AddCanHelp = (props) => {
-
     const add = async (email, name, city, description, phone, title,pictur) => {
-        const de = await $authHost.post('api/addAsistant', { email, name, city, description, phone, title ,pictur})
+        await $authHost.post('api/addAsistant', { email, name, city, description, phone, title ,pictur})
     }
-
     const [name, setName] = useState('')
     const [city, setCity] = useState('')
     const [description, setDescription] = useState('')
@@ -19,8 +14,6 @@ const AddCanHelp = (props) => {
     const [email, setEmail] = useState('')
     const [title, setTitle] = useState('')
     const [img, setImg] = useState('null')
-    const [avatar, setAvatar] = useState()
-  
     const click = async () => {
         try {
             const data = new FormData();
@@ -33,12 +26,10 @@ const AddCanHelp = (props) => {
            .then(await add(email, name, city, description, phone, title, img.name))
            .then(window.location.reload())
         } catch (error) {
-            console.log('eror')
+            console.log('erorr')
         }
     }
   
-  
-
     return (
         <div className='brd'>
             <div class="mb-3">

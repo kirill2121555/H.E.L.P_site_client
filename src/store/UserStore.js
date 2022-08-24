@@ -26,7 +26,6 @@ export default class UserStore {
         this._role = role
     }
 
-
     get isAuth() {
         return this._isAuth
     }
@@ -42,5 +41,4 @@ export default class UserStore {
     get role() {
         return this._role
     }
-
 }

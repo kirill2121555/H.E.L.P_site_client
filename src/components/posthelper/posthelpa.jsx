@@ -18,7 +18,6 @@ const posthelp = (props) => {
     </div>
     <br></br>
   </div>
-
   )
 }
 export default posthelp

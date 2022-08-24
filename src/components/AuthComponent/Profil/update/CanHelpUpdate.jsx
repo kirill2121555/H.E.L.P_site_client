@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import { $authHost } from '../../../http';
-import { fetchAssist} from '../../../http/feth';
-
+import { fetchAssist } from '../../../http/feth';
 
 const CanHelpUpdate = (props) => {
 
@@ -27,14 +26,14 @@ const CanHelpUpdate = (props) => {
     }, [])
 
     const add = async () => {
-        const de = await $authHost.post('api/updateOneAsistant/' + id, { name, phone, description, city, email,title })
+        await $authHost.post('api/updateOneAsistant/' + id, { name, phone, description, city, email, title })
     }
 
     return (
         <div className='brd'>
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Чем вы можете помочь</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" 
+                <input type="email" class="form-control" id="exampleFormControlInput1"
                     value={title}
                     onChange={e => setTitle(e.target.value)}></input>
             </div>
@@ -75,7 +74,8 @@ const CanHelpUpdate = (props) => {
             <NavLink to={'/nha'}>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <button class="btn btn-primary me-md-2" type="button" onClick={add}>Сохранить</button>
-                </div></NavLink>
+                </div>
+            </NavLink>
         </div>
     );
 }

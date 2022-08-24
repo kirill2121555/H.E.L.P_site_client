@@ -2,8 +2,7 @@ import {$authHost, $host} from "./index";
 import jwt_decode from "jwt-decode";
 
 export const registration = async (email, password,nick) => {
-    const {data} = await $host.post('api/registration', {email, password, nick,role: 'ADMIN'})
-
+    await $host.post('api/registration', {email, password, nick,role: 'ADMIN'})
 }
 
 export const login = async (email, password) => {

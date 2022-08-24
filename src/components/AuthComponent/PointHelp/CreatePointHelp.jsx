@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { NavLink } from 'react-router-dom';
-import { $authHost } from '../../http';
 import { addPointhelp } from "../../http/feth";
 import g from './../../posthelper/module.css'
 
@@ -19,11 +18,10 @@ const CreatePointHelp = (props) => {
 
     const click = async () => {
         try {
-            let data;
-            data = await addPointhelp(name, nameBoss, phone,address, city,email,region, listThings, description);
+            await addPointhelp(name, nameBoss, phone, address, city, email, region, listThings, description);
             window.location.reload()
         } catch (e) {
-            alert(e.response)
+            console.log('error')
         }
     }
 
@@ -94,7 +92,8 @@ const CreatePointHelp = (props) => {
             <NavLink to={'/nha'}>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <button class="btn btn-primary me-md-2" type="button" onClick={click}>Добавить</button>
-                </div></NavLink>
+                </div>
+            </NavLink>
         </div>
     );
 }

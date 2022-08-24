@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import s from './Navbar.module.css'
-import { NavLink, useParams } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { useContext } from "react";
 import { Context } from "../..";
 import { observer } from "mobx-react-lite";
@@ -15,14 +15,12 @@ const Navbar = observer(() => {
     {user.user.isAuth ? (
       <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
-
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown"> 
-          <img  className={s.pi} src={logo} alt="Logo"></img>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <img className={s.pi} src={logo} alt="Logo"></img>
             <ul class="navbar-nav">
-           
               <li class="nav-item">
                 <b><NavLink to="gum" className='nav-link'>Пункты Гум Помощи</NavLink></b>
               </li>
@@ -42,17 +40,17 @@ const Navbar = observer(() => {
                 <b><NavLink to="logout" className="nav-link">Выйти</NavLink></b>
               </li>
             </ul>
-
           </div>
         </div>
-      </nav>) :
+      </nav>)
+      :
       (<nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <NavLink to="gum"><img  className={s.pi} src={logo} alt="Logo"></img></NavLink>
+            <NavLink to="gum"><img className={s.pi} src={logo} alt="Logo"></img></NavLink>
             <ul class="navbar-nav">
               <li class="nav-item">
                 <b><NavLink to="gum" className='nav-link'>Пункты Гум Помощи</NavLink></b>
@@ -69,10 +67,7 @@ const Navbar = observer(() => {
             </ul>
           </div>
         </div>
-      </nav>
-
-      )
-
+      </nav>)
     }
   </nav>
 })
