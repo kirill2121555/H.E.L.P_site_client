@@ -1,11 +1,11 @@
 import axios from "axios";
 
 const $host = axios.create({
-    baseURL: 'https://helpsiteserver.herokuapp.com/'
+    baseURL: 'https://serverrr.vercel.app/'
 })
 
 const $authHost = axios.create({
-    baseURL: 'https://helpsiteserver.herokuapp.com/'
+    baseURL: 'https://serverrr.vercel.app/'
 })
 
 const authInterceptor = config => {

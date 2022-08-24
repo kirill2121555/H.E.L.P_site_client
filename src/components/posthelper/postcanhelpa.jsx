@@ -17,7 +17,7 @@ const posthelp = (props) => {
           <p><small>Адрес: {props.post.city} </small></p>
 
           {props.post.picture ?
-            <div><img className="pictur" src={`http://localhost:5000/images/` + props.post.picture} alt="Изображение"></img> <br></br>
+            <div><img className="pictur" src={`https://serverrr.vercel.app/images/` + props.post.picture} alt="Изображение"></img> <br></br>
              </div> : ' '
           }
 

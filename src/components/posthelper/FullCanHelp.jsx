@@ -27,7 +27,7 @@ const FullCanHelp = (props) => {
                             <p><small>Телефое: {devise.phone} </small></p>
                             <p><small>Адрес: {devise.city} </small></p>
                             {devise.picture ?
-                                <div><img className="picturfull" src={`http://localhost:5000/images/` + devise.picture} alt="КАРТИНКА"></img>
+                                <div><img className="picturfull" src={`https://serverrr.vercel.app/images/` + devise.picture} alt="КАРТИНКА"></img>
                                 </div> : ' '
                             }
                             {user.user.isAuth ? (
