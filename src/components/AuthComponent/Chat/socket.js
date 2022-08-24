@@ -1,7 +1,6 @@
 import io from 'socket.io-client'
-const socket = io('https://chatforsitee.vercel.app/', {
+const socket = io('https://chatforsite.herokuapp.com/', {
     withCredentials: true,
-    path: "/my-custom-path/"
 
   });
 export default socket
