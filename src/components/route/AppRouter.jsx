@@ -1,4 +1,4 @@
-import Error from './../Error/error'
+import Error from '../elements/error'
 import React from 'react'
 import { Route, Routes } from 'react-router-dom';
 import { useContext } from 'react'

@@ -1,5 +1,4 @@
 import React, { useContext, useEffect } from 'react'
-import Navbar from './components/Navbar/Navbar';
 import './App.css';
 import AppRouter from './components/route/AppRouter';
 import { useState } from 'react';
@@ -7,7 +6,9 @@ import { observer } from 'mobx-react-lite';
 import { Context } from '.';
 import { check } from './components/http/userApi';
 import { Spinner } from "react-bootstrap";
-import Footer from './components/Navbar/Footer';
+import Navbar from './components/elements/Navbar/Navbar';
+import Footer from './components/elements/Navbar/Footer';
+
 
 const App = observer(() => {
   const { user } = useContext(Context)

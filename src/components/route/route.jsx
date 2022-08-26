@@ -1,67 +1,66 @@
 import React from 'react'
-import Post from '../posthelper/Post'
-import Login from '../pages/login';
-import ListHelp from '../posthelper/listhelp';
-import FullNeedHelp from './../exampl/FullNeedHelp'
-import CanHelp from '../posthelper/canhelp'
-import FullCanHelp from '../posthelper/FullCanHelp'
-import CanHelpA from '../AuthComponent/CanHelp/CanHelpA'
-import AddCanHelp from '../AuthComponent/CanHelp/AddCanHelp'
-import AddNeedHelp from '../AuthComponent/NeedHelp/AddNeedHelp'
-import Logout from '../pages/logout'
-import Registration from '../pages/registration'
-import Loginafterregistration from '../pages/Loginafterregistration'
-import RecoveryPassword from '../pages/RecoveryPassword'
-import RemovePassword from '../pages/RemovePassword'
-import Profil from '../AuthComponent/Profil/Profil'
-import NeedHelpUpdate from '../AuthComponent/Profil/update/NeedHelpUpdate'
-import CanHelpUpdate from '../AuthComponent/Profil/update/CanHelpUpdate'
-import Chat from '../AuthComponent/Chat/Chat';
-import CreatePointHelp from '../AuthComponent/PointHelp/CreatePointHelp';
-import RequesеForAddPH from '../AuthComponent/PointHelp/RequesеForAddPH';
-import AllNeedHelp from '../AuthComponent/NeedHelp/AllNeedHelp';
-import Dialogs from '../AuthComponent/Chat/Dialogs';
+import Login from '../Authorization/Login';
+import Logout from '../Authorization/Logout'
+import Registration from '../Authorization/Registration'
+import Loginafterregistration from '../Authorization/Loginafterregistration'
+import RecoveryPassword from '../Authorization/RecoveryPassword'
+import RemovePassword from '../Authorization/RemovePassword'
+import Profil from '../Profile/Profil'
+import RequesеForAddPH from '../Profile/Requesе/RequesеForAddPH';
+import MainPageCH from '../Posts/CanHelp/MainPageCH';
+import MainPagePHH from '../Posts/PostHumHelp/MainPagePHH';
+import FullPostCH from '../Posts/CanHelp/FullPostCH';
+import FullPostNH from '../Posts/NeedHelp/FullPostNH';
+import AddPH from '../Profile/AddPosts/AddPH';
+import UpdateCH from '../Profile/UpdatePosts/UpdateCH';
+import UpdateNH from '../Profile/UpdatePosts/UpdateNH';
+import AddCH from '../Profile/AddPosts/AddCH';
+import AddNH from '../Profile/AddPosts/AddNH';
+import MainPageNH from '../Posts/NeedHelp/MainPageNH';
+import FullPostPHH from '../Posts/PostHumHelp/FullPostPHH';
+import Chat from '../Chat/Chat';
+import Dialogs from '../Chat/Dialogs';
 
 export const publicRoutes = [
     {
-        path: "/gum",
-        Element: <ListHelp />
+        path: "/",
+        Element: <MainPagePHH />
     },
     {
-        path: "/",
-        Element: <ListHelp />
+        path: "/gum",
+        Element: <MainPagePHH />
+    },
+    {
+        path: "/gum/:id",
+        Element: <FullPostPHH />
     },
     {
         path: "/ch",
-        Element: <CanHelp />
+        Element: <MainPageCH />
+    },
+    {
+        path: "/ch/:id",
+        Element: <FullPostCH />
     },
     {
         path: "/nh",
-        Element: <AllNeedHelp />
+        Element: <MainPageNH />
+    },
+    {
+        path: "/nh/:id",
+        Element: <FullPostNH />
     },
     {
         path: "/login",
         Element: <Login />
     },
     {
-        path: "/gum/:id",
-        Element: <Post />
-    },
-    {
-        path: "/ch/:id",
-        Element: <FullCanHelp />
-    },
-    {
-        path: "/nh/:id",
-        Element: <FullNeedHelp />
+        path: "/loginn",
+        Element: <Loginafterregistration />
     },
     {
         path: "/registration",
         Element: <Registration />
-    },
-    {
-        path: "/loginn",
-        Element: <Loginafterregistration />
     },
     {
         path: "/recoveryPassword",
@@ -76,19 +75,19 @@ export const publicRoutes = [
 export const authRoutes = [
     {
         path: "/nha",
-        Element: < AllNeedHelp/>
+        Element: < MainPageNH />
     },
     {
         path: "/addneedhelp",
-        Element: <AddNeedHelp />
+        Element: <AddNH />
     },
     {
         path: "/cha",
-        Element: <CanHelpA />
+        Element: <MainPageCH />
     },
     {
         path: "/addcanhelp",
-        Element: <AddCanHelp />
+        Element: <AddCH />
     },
     {
         path: "/logout",
@@ -100,11 +99,11 @@ export const authRoutes = [
     },
     {
         path: "/nhupdate/:id",
-        Element: <NeedHelpUpdate />
+        Element: <UpdateNH />
     },
     {
         path: "/chupdate/:id",
-        Element: <CanHelpUpdate />
+        Element: <UpdateCH />
     },
     {
         path: "/chat",
@@ -116,10 +115,10 @@ export const authRoutes = [
     },
     {
         path: "/addpointhelp",
-        Element: <CreatePointHelp />
+        Element: <AddPH />
     },
     {
         path: '/rfaph',
-        Element: <RequesеForAddPH/>
-    },   
+        Element: <RequesеForAddPH />
+    },
 ]
