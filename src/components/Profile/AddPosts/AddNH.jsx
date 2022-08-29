@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { NavLink } from 'react-router-dom';
-import { $authHost } from '../../http';
+import { addNeedHelp } from "../../http/feth";
 import style from './../../cssstyles/module.css'
 
 const AddNH = (props) => {
@@ -12,12 +12,9 @@ const AddNH = (props) => {
     const [listThings, setlistThings] = useState('')
     const [secondName, setsecondName] = useState('')
 
-    const add = async (name, secondName, phone, city, listThings, description) => {
-        await $authHost.post('api/addNeedHelp', { name, secondName, phone, city, listThings, description })
-    }
     const click = async () => {
         try {
-            await add(name, secondName, phone, city, listThings, description);
+            await  addNeedHelp( name, secondName, phone, city, listThings, description )
             window.location.reload()
         } catch (e) {
             console.log('erorr')

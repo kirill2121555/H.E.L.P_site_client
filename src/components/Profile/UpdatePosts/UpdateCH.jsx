@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
-import { $authHost } from '../../http';
-import { fetchAssist } from '../../http/feth';
+import { fetchAssist, updateOneAsistant } from '../../http/feth';
 
 const UpdateCH = (props) => {
 
@@ -25,8 +24,8 @@ const UpdateCH = (props) => {
             })
     }, [])
 
-    const add = async () => {
-        await $authHost.post('api/updateOneAsistant/' + id, { name, phone, description, city, email, title })
+    const update = async (id, name, phone, description, city, email, title) => {
+        updateOneAsistant( id, name, phone, description, city, email, title )
     }
 
     return (
@@ -73,7 +72,7 @@ const UpdateCH = (props) => {
             </div>
             <NavLink to={'/nha'}>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <button class="btn btn-primary me-md-2" type="button" onClick={add}>Сохранить</button>
+                    <button class="btn btn-primary me-md-2" type="button" onClick={update}>Сохранить</button>
                 </div>
             </NavLink>
         </div>

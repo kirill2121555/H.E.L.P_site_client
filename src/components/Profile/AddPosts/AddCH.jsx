@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import { NavLink } from 'react-router-dom';
-import { $authHost, } from '../../http';
+import { addAsistant } from "../../http/feth";
 import g from './../../cssstyles/module.css'
 
 const AddCH = (props) => {
-    const add = async (email, name, city, description, phone, title,pictur) => {
-        await $authHost.post('api/addAsistant', { email, name, city, description, phone, title ,pictur})
-    }
     const [name, setName] = useState('')
     const [city, setCity] = useState('')
     const [description, setDescription] = useState('')
@@ -14,6 +11,10 @@ const AddCH = (props) => {
     const [email, setEmail] = useState('')
     const [title, setTitle] = useState('')
     const [img, setImg] = useState('null')
+
+    const add = (email, name, city, description, phone, title,pictur) => {
+        addAsistant(email, name, city, description, phone, title ,pictur)
+    }
     const click = async () => {
         try {
             const data = new FormData();

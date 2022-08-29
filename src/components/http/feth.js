@@ -13,7 +13,24 @@ export const getDialog = async (id) => {
     const { data } = await $authHost.get(`api/getDialog?companion=${id}`)
     return data
 }
+export const addAsistant = async ( email, name, city, description, phone, title ,pictur) => {
+    const { data } = await $authHost.post('api/addAsistant', { email, name, city, description, phone, title ,pictur})
+    return data
+}
 
+export const updatepost = async ( id,name, phone, description, listThings, city, secondName) => {
+    const { data } =  await $authHost.post('api/updatepost/' + id, { name, phone, description, listThings, city, secondName })
+    return data
+}
+
+export const addNeedHelp = async (  name, secondName, phone, city, listThings, description ) => {
+    const { data } =  await $authHost.post('api/addNeedHelp', { name, secondName, phone, city, listThings, description })
+    return data
+}
+export const updateOneAsistant = async ( id, name, phone, description, city, email, title ) => {
+    const { data } =  await $authHost.post('api/updateOneAsistant/' + id, { name, phone, description, city, email, title })
+    return data
+}
 export const allDialogs = async () => {
     const { data } = await $authHost.get(`api/allDialogs`)
     return data
@@ -31,11 +48,6 @@ export const getAsistant = async (text) => {
 
 export const fetchAssist = async (id) => {
     const { data } = await $host.get('api/getOneAsistant/' + id)
-    return data
-}
-
-export const updatepost = async (name) => {
-    const { data } = await $authHost.post('api/up', { name })
     return data
 }
 
