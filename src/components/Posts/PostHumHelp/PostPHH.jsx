@@ -9,7 +9,7 @@ const PostPHH = (props) => {
       <h6 className="card-header">{props.post.description}</h6>
       <div className="card-body">
         <h6 className="card-title">Виды помощи: {props.post.listThings}</h6>
-        <p className="clip">{props.post.region}</p>
+        <p className="clip">О нас:{props.post.description}</p>
         <p><small>Email: {props.post.email}</small></p>
         <p><small>Телефое: {props.post.phone} {props.post.nameBoss}  </small></p>
         <p><small>Адрес: {props.post.city} {props.post.address} </small></p>

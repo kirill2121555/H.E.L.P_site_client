@@ -49,7 +49,7 @@ const FullPostPHH = (props) => {
                     <h2 class="card-header">{devise.name}<h6>{devise.description}</h6></h2>
                     <div class="card-body">
                          <h6 class="card-title">Виды помощи: {devise.listThings}</h6>
-                         <p class="clipp">О нас:<br></br>{devise.region}</p>
+                         <p class="clipp">О нас: {devise.description}</p>
                          <p><small>Email: {devise.email}</small></p>
                          <p><small>Телефое: {devise.phone} {devise.nameBoss}  </small></p>
                          <p><small>Адрес: {devise.city} {devise.address} </small></p>
