@@ -20,6 +20,7 @@ import MainPageNH from '../Posts/NeedHelp/MainPageNH';
 import FullPostPHH from '../Posts/PostHumHelp/FullPostPHH';
 import Chat from '../Chat/Chat';
 import Dialogs from '../Chat/Dialogs';
+import Setings from '../Profile/Setings/Setings';
 
 export const publicRoutes = [
     {
@@ -120,5 +121,9 @@ export const authRoutes = [
     {
         path: '/rfaph',
         Element: <RequesеForAddPH />
+    },
+    {
+        path: "/setings",
+        Element: < Setings />
     },
 ]

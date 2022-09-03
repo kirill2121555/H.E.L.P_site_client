@@ -1,8 +1,11 @@
+
 import React, { useState } from "react";
 import { NavLink } from 'react-router-dom';
 import { $authHost } from "../../http";
 import { addAsistant } from "../../http/feth";
 import g from './../../cssstyles/module.css'
+const moment =require('moment')
+
 
 const AddCH = (props) => {
     const [name, setName] = useState('')
@@ -13,19 +16,17 @@ const AddCH = (props) => {
     const [title, setTitle] = useState('')
     const [img, setImg] = useState('null')
 
-    const add = (email, name, city, description, phone, title,pictur) => {
-        addAsistant(email, name, city, description, phone, title ,pictur)
-    }
     const click = async () => {
         try {
+            const namefile =((moment().format('DDMMYYYY-HHmmss_SSS')+'.png'))
             const data = new FormData();
-            data.append('avatar', img);
+            data.append('picture', img, namefile);
             await $authHost.post('/api/upload', data, {
                 headers: {
                     'content-type': 'mulpipart/form-data'
                 }
             })
-           .then(await add(email, name, city, description, phone, title, img.name))
+           .then(await addAsistant(email, name, city, description, phone, title, namefile))
            .then(window.location.reload())
         } catch (error) {
             console.log('erorr')

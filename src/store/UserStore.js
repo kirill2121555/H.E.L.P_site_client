@@ -7,6 +7,7 @@ export default class UserStore {
         this._nick = ''
         this._userid=''
         this._role=''
+        this._avatar=''
         makeAutoObservable(this)
     }
 
@@ -25,6 +26,9 @@ export default class UserStore {
     setRole(role) {
         this._role = role
     }
+    setAvatar(avatar) {
+        this._avatar = avatar
+    }
 
     get isAuth() {
         return this._isAuth
@@ -40,5 +44,8 @@ export default class UserStore {
     }
     get role() {
         return this._role
+    }
+    get avatar() {
+        return this._avatar
     }
 }

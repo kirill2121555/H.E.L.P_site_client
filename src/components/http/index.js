@@ -1,11 +1,11 @@
 import axios from "axios";
 
 const $host = axios.create({
-    baseURL: 'https://serverrr.vercel.app/'
+    baseURL: 'https://serverrr.vercel.app/'     //http://localhost:5000/'
 })
 
 const $authHost = axios.create({
-    baseURL: 'https://serverrr.vercel.app/'
+    baseURL: 'https://serverrr.vercel.app/'         //http://localhost:5000/
 })
 
 const authInterceptor = config => {
@@ -13,9 +13,12 @@ const authInterceptor = config => {
     return config
 }
 
+const Host='https://serverrr.vercel.app/'//http://localhost:5000/
+
 $authHost.interceptors.request.use(authInterceptor)
 
 export {
+    Host,
     $host,
     $authHost
 }

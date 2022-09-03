@@ -6,7 +6,7 @@
     "n"
     "h";
 
-  grid-template-rows: 60px 1fr;
+  grid-template-rows: 80px 1fr;
   grid-template-columns: 1fr;
 }
 
@@ -73,6 +73,7 @@
   cursor: pointer;
 }
 
+
 .form button:focus,
 .form input:focus {
   outline: none;
@@ -95,4 +96,75 @@
   overflow: auto;
   width: 420px;
   height: 450px;
+}
+.ansver {
+  background-color:whitesmoke;
+  width: 1100px;
+  text-align: left;
+  min-height: 2em;
+  margin-left: auto;
+  margin-right: -0.4em;
+  border: 1px solid black;
+}
+
+
+
+.pictu {
+  width: 360px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.tab input, .tab-content { display: none; }
+.tab {
+ font: 0.8rem/1.2 Arial, sans-serif; 
+ border: 1px solid #e9eaec; 
+ border-radius: 3px;
+ color: #848994; 
+ margin-bottom: 10px; 
+}
+.tab-title {
+ padding: 10px; 
+ display: block; 
+ text-transform: uppercase;
+ font-weight: bold;
+ cursor: pointer; 
+}
+.tab-title::after {
+ content: '+'; 
+ float: right; 
+}
+.tab-content {
+ padding: 10px 20px; /* Поля вокруг текста */
+}
+.tab :checked + .tab-title {
+ background-color: #50a2de; /* Цвет фона */
+ border-radius: 3px 3px 0 0; /* Скругляем уголки */
+ color: #fff; /* Цвет текста */
+}
+.tab :checked + .tab-title::after {
+ content: '−'; /* Выводим минус */
+}
+.tab :checked ~ .tab-content {
+ display: block; /* Показываем содержимое */
+}
+
+.textar{
+  width:1200px;
+  rows:2;
+  resize:none;
+}
+.lll{
+  color:white;
+  padding: 5px;
+  font-size:xx-large;
+  border-radius: 8px;
+  background-color: #1e90ff;
+}
+
+.centerlabel{
+  text-align:center;
 }

@@ -1,0 +1,39 @@
+.pi {
+  height: 70px;
+    width: 70px;
+    border-radius: 70px;
+  }
+  .pic{
+    height:150px;
+      width: 150px;
+      border-radius: 150px;
+    }
+  
+  .posts {
+    display: grid;
+    grid-template-columns: 20fr 1fr;
+    grid-gap: 10px;
+    grid-auto-rows: auto;
+    grid-template-areas:
+      "a  c";
+
+    }
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    grid-auto-rows: auto;
+    grid-template-areas:
+      "a  c";
+
+    }
+  .item1 {
+    grid-area: a;
+  }
+  .item2 {
+    grid-area: c;
+
+  }
+  .item3 {
+    grid-area: b;
+  }

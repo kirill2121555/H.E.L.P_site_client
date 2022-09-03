@@ -8,6 +8,7 @@ import { check } from './components/http/userApi';
 import { Spinner } from "react-bootstrap";
 import Navbar from './components/elements/Navbar/Navbar';
 import Footer from './components/elements/Navbar/Footer';
+import { $host, Host } from './components/http';
 
 
 const App = observer(() => {
@@ -20,6 +21,7 @@ const App = observer(() => {
       user.setNick(data.nick)
       user.setUserId(data.id)
       user.setRole(data.role)
+      user.setAvatar(Host+'images/'+data.avatar)
     }).finally(() => setLoading(false))
   }, [])
 
@@ -28,6 +30,7 @@ const App = observer(() => {
   }
 
   return (
+    
     <div className="app-wrapper">
       <Navbar />
       <div className='height'> <AppRouter className='height' /></div>

@@ -7,6 +7,9 @@ import { useEffect } from "react";
 import { getAP, getNHP } from "../http/feth";
 import { observer } from "mobx-react-lite";
 import { Context } from "../..";
+import logo from './../../img/Logo.png'
+import s from './../cssstyles/profil.css'
+
 
 const Profil = observer(() => {
     const { user } = useContext(Context)
@@ -14,6 +17,8 @@ const Profil = observer(() => {
     const [loading, setLoading] = useState(true)
     const [persons, setPersons] = useState([])
     const [nhs, setnhs] = useState([])
+const[categor,setcategor]=useState(1)
+
 
     useEffect(() => {
         getAP().then(
@@ -28,23 +33,47 @@ const Profil = observer(() => {
         )
     }, [])
 
+
+
     if (loading) {
         return <Spinner animation={"grow"} />
     }
     return (
         <div>
-            <br></br><div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <NavLink to={'/addcanhelp'}><button class="btn btn-primary" type="button">Добавить пост в категории "Могу помочь"</button></NavLink>
-                <NavLink to={'/addneedhelp'}><button class="btn btn-primary" type="button">Добавить пост в категории "Нужна помошь"</button></NavLink>
-            </div>
-            {user.role === 'MODERATOR'
-                ?
-                <div>
-                    <NavLink to={'/addpointhelp'}><button class="btn btn-primary" type="button">Добавить пост в категории "Пункт помощи"</button></NavLink>
+            <div className='wrapper'>
+                <div className='item1'>
+                    <img className='pic' src={user.avatar} alt="Logo"></img>
+                    <div>
+                        Имя: {user.nick}
+                        <br></br>
+                        <NavLink to={'/setings'}><button class="btn btn-primary" type="button">Настройки профиля</button></NavLink>
+                    </div>
                 </div>
-                :
-                ' '}
-            <div>
+                <div className='item2'>
+
+                    <br></br><div class="d-grid gap-2 d-md-flex justify-content-md-end">
+
+                        <NavLink to={'/addcanhelp'}><button class="btn btn-primary" type="button">Добавить пост в категории "Могу помочь"</button></NavLink>
+                    </div>
+                    <br></br><div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <NavLink to={'/addneedhelp'}><button class="btn btn-primary" type="button">Добавить пост в категории "Нужна помошь"</button></NavLink>
+                    </div> <br></br>
+                    {user.role === 'MODERATOR'
+                        ?
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <NavLink to={'/addpointhelp'}><button class="btn btn-primary" type="button">Добавить пост в категории "Пункт помощи"</button></NavLink>
+                        </div>
+                        :
+                        ' '}
+                </div>
+            </div>
+            <div className="center">
+            <button  class="btn btn-primary" onClick={()=>{setcategor(1)}}> "Могу помочь"</button> 
+            <div>  </div>
+            <button   class="btn btn-primary" onClick={()=>{setcategor(2)}}> "Нужна помошь"</button>
+</div>
+            {categor===1?
+             <div>
                 {persons.length !== 0 ? <h3>Ваши посты в категории "Могу помочь"</h3> : <h1>У вас нет постов в категории "Могу помочь"</h1>}
                 <ul>
                     {persons.length === 0
@@ -54,7 +83,8 @@ const Profil = observer(() => {
                         (persons.map(person => <ListAssist person={person} />))
                     }
                 </ul>
-            </div>
+            </div>:
+           
             <div>
                 {nhs.length !== 0 ? <h3>Ваши посты в категории "Нужна помошь"</h3> : <h1>У вас нет постов в категории "Нужна помочь"</h1>}
                 <ul>
@@ -65,7 +95,7 @@ const Profil = observer(() => {
                         (nhs.map(nh => <ListNeedhelp nh={nh} />))
                     }
                 </ul>
-            </div>
+            </div>}
         </div>
     )
 }
