@@ -1,11 +1,11 @@
 import axios from "axios";
 
-const $host = axios.create({
-    baseURL: 'https://serverrr.vercel.app/'     //http://localhost:5000/'
+const $host = axios.create({  
+    baseURL: 'http://localhost:5000/'     //' https://serverrr.vercel.app/
 })
 
 const $authHost = axios.create({
-    baseURL: 'https://serverrr.vercel.app/'         //http://localhost:5000/
+    baseURL: 'http://localhost:5000/'            //' https://serverrr.vercel.app/
 })
 
 const authInterceptor = config => {

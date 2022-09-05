@@ -17,7 +17,7 @@ const Profil = observer(() => {
     const [loading, setLoading] = useState(true)
     const [persons, setPersons] = useState([])
     const [nhs, setnhs] = useState([])
-const[categor,setcategor]=useState(1)
+    const [categor, setcategor] = useState(1)
 
 
     useEffect(() => {
@@ -50,14 +50,20 @@ const[categor,setcategor]=useState(1)
                     </div>
                 </div>
                 <div className='item2'>
-
-                    <br></br><div class="d-grid gap-2 d-md-flex justify-content-md-end">
-
+                    <br></br>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                         <NavLink to={'/addcanhelp'}><button class="btn btn-primary" type="button">Добавить пост в категории "Могу помочь"</button></NavLink>
                     </div>
-                    <br></br><div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <br></br>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                         <NavLink to={'/addneedhelp'}><button class="btn btn-primary" type="button">Добавить пост в категории "Нужна помошь"</button></NavLink>
-                    </div> <br></br>
+                    </div>
+                    <br></br>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <NavLink to={'/addblogpost'}><button class="btn btn-primary" type="button">Добавить статью в блог</button></NavLink>
+                    </div>
+                    <br></br>
+
                     {user.role === 'MODERATOR'
                         ?
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
@@ -68,34 +74,34 @@ const[categor,setcategor]=useState(1)
                 </div>
             </div>
             <div className="center">
-            <button  class="btn btn-primary" onClick={()=>{setcategor(1)}}> "Могу помочь"</button> 
-            <div>  </div>
-            <button   class="btn btn-primary" onClick={()=>{setcategor(2)}}> "Нужна помошь"</button>
-</div>
-            {categor===1?
-             <div>
-                {persons.length !== 0 ? <h3>Ваши посты в категории "Могу помочь"</h3> : <h1>У вас нет постов в категории "Могу помочь"</h1>}
-                <ul>
-                    {persons.length === 0
-                        ?
-                        ''
-                        :
-                        (persons.map(person => <ListAssist person={person} />))
-                    }
-                </ul>
-            </div>:
-           
-            <div>
-                {nhs.length !== 0 ? <h3>Ваши посты в категории "Нужна помошь"</h3> : <h1>У вас нет постов в категории "Нужна помочь"</h1>}
-                <ul>
-                    {nhs === 0
-                        ?
-                        ' '
-                        :
-                        (nhs.map(nh => <ListNeedhelp nh={nh} />))
-                    }
-                </ul>
-            </div>}
+                <button class="btn btn-primary" onClick={() => { setcategor(1) }}> "Могу помочь"</button>
+                <div>  </div>
+                <button class="btn btn-primary" onClick={() => { setcategor(2) }}> "Нужна помошь"</button>
+            </div>
+            {categor === 1 ?
+                <div>
+                    {persons.length !== 0 ? <h3>Ваши посты в категории "Могу помочь"</h3> : <h1>У вас нет постов в категории "Могу помочь"</h1>}
+                    <ul>
+                        {persons.length === 0
+                            ?
+                            ''
+                            :
+                            (persons.map(person => <ListAssist person={person} />))
+                        }
+                    </ul>
+                </div> :
+
+                <div>
+                    {nhs.length !== 0 ? <h3>Ваши посты в категории "Нужна помошь"</h3> : <h1>У вас нет постов в категории "Нужна помочь"</h1>}
+                    <ul>
+                        {nhs === 0
+                            ?
+                            ' '
+                            :
+                            (nhs.map(nh => <ListNeedhelp nh={nh} />))
+                        }
+                    </ul>
+                </div>}
         </div>
     )
 }

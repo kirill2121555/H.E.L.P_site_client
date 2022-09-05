@@ -21,6 +21,9 @@ import FullPostPHH from '../Posts/PostHumHelp/FullPostPHH';
 import Chat from '../Chat/Chat';
 import Dialogs from '../Chat/Dialogs';
 import Setings from '../Profile/Setings/Setings';
+import MainPage from '../Posts/Main/MainPage';
+import AddBlogPost from '../Posts/Blog/AddBlogPost';
+import FullBlogPost from '../Posts/Blog/FullBlogPost';
 
 export const publicRoutes = [
     {
@@ -70,6 +73,10 @@ export const publicRoutes = [
     {
         path: "/removePassword/:id",
         Element: <RemovePassword />
+    },
+    {
+        path: "/main",
+        Element: <MainPage />
     },
 ]
 
@@ -125,5 +132,17 @@ export const authRoutes = [
     {
         path: "/setings",
         Element: < Setings />
+    },
+    {
+        path: "/main",
+        Element: <MainPage />
+    },
+    {
+        path: "/addblogpost",
+        Element: <AddBlogPost />
+    },
+    {
+        path: "/blogpost/:id",
+        Element: <FullBlogPost />
     },
 ]

@@ -19,21 +19,20 @@ const FullPostPHH = (props) => {
      const [mark, setMark] = useState('')
      const [qr, setQr] = useState()
      const user = useContext(Context)
+     const typepost = 'pointHelp'
 
      useEffect(() => {
           fetchOneDevice(id).then(data => {
                setDevise(data[0])
                setQr(data[1])
-
-
           })
-          getCommentss(id).then(data => setComments(data))
+          getCommentss(id,typepost).then(data => setComments(data))
           getmark(id).then(data => setMark(data))
      }, [])
 
      const addComment = async () => {
           const data = new Date()
-          await postComment(id, comment, data)
+          await postComment(id, comment, data, typepost)
           setComment('')
           window.location.reload()
      }
@@ -58,15 +57,15 @@ const FullPostPHH = (props) => {
           <div>
                <div class="card">
                     <div class="card-header">
-                            <div className='posts'>
-                                <div className='item1'>
-                                    <h2> {devise.name}<h6>{devise.description}</h6></h2>
-                                </div>
-                                <div className='item2'>
-                                    <Share props={[window.location.href, qr]} />
-                                </div>
-                            </div>
-                        </div>
+                         <div className='posts'>
+                              <div className='item1'>
+                                   <h2> {devise.name}<h6>{devise.description}</h6></h2>
+                              </div>
+                              <div className='item2'>
+                                   <Share props={[window.location.href, qr]} />
+                              </div>
+                         </div>
+                    </div>
                     <div class="card-body">
                          <h6 class="card-title">Виды помощи: {devise.listThings}</h6>
                          <p class="clipp">О нас: {devise.description}</p>

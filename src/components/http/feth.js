@@ -13,29 +13,29 @@ export const getDialog = async (id) => {
     const { data } = await $authHost.get(`api/getDialog?companion=${id}`)
     return data
 }
-export const addAsistant = async ( email, name, city, description, phone, title ,namefile) => {
-    const { data } = await $authHost.post('api/addAsistant', { email, name, city, description, phone, title ,namefile})
+export const addAsistant = async (email, name, city, description, phone, title, namefile) => {
+    const { data } = await $authHost.post('api/addAsistant', { email, name, city, description, phone, title, namefile })
     return data
 }
 
-export const updatepost = async ( id,name, phone, description, listThings, city, secondName) => {
-    const { data } =  await $authHost.post('api/updatepost/' + id, { name, phone, description, listThings, city, secondName })
+export const updatepost = async (id, name, phone, description, listThings, city, secondName) => {
+    const { data } = await $authHost.post('api/updatepost/' + id, { name, phone, description, listThings, city, secondName })
     return data
 }
 
-export const addNeedHelp = async (  name, secondName, phone, city, listThings, description ) => {
-    const { data } =  await $authHost.post('api/addNeedHelp', { name, secondName, phone, city, listThings, description })
+export const addNeedHelp = async (name, secondName, phone, city, listThings, description) => {
+    const { data } = await $authHost.post('api/addNeedHelp', { name, secondName, phone, city, listThings, description })
     return data
 }
-export const updateOneAsistant = async ( id, name, phone, description, city, email, title ) => {
-    const { data } =  await $authHost.post('api/updateOneAsistant/' + id, { name, phone, description, city, email, title })
+export const updateOneAsistant = async (id, name, phone, description, city, email, title) => {
+    const { data } = await $authHost.post('api/updateOneAsistant/' + id, { name, phone, description, city, email, title })
     return data
 }
 export const allDialogs = async () => {
     const { data } = await $authHost.get(`api/allDialogs`)
     return data
 }
-export const generalchatinformation= async () => {
+export const generalchatinformation = async () => {
     const { data } = await $authHost.get(`api/generalchatinformation`)
     return data
 }
@@ -66,7 +66,7 @@ export const fetchOneCanHelp = async (id) => {
     return data
 }
 
-export const getAllPointHelp = async (text,sort) => {
+export const getAllPointHelp = async (text, sort) => {
     const { data } = await $host.get(`api/getAllPointHelp?text=${text}&sort=${sort}`)
     return data
 }
@@ -95,12 +95,12 @@ export const getNHP = async () => {
     const dta = await $authHost.get('api/getNeedHelpPerson')
     return (dta.data)
 }
-export const postComment = async (id, text, timeCreate) => {
-    const data = await $authHost.post('api/addComment/' + id, { text, timeCreate })
+export const postComment = async (id, text, timeCreate,typepost) => {
+    const data = await $authHost.post('api/addComment', { id,text, timeCreate ,typepost})
     return (data)
 }
-export const getCommentss = async (id) => {
-    const data = await $host.get('api/getComment/' + id)
+export const getCommentss = async (id,type) => {
+    const data = await $host.get(`api/getComment/?id=${id}&type=${type}`)
     return (data.data)
 }
 export const addPointhelp = async (name, nameBoss, phone, address, city, email, region, listThings, description) => {
@@ -125,23 +125,41 @@ export const ProfileInformation = async () => {
     return data
 }
 export const changeNick = async (nick) => {
-    const { data } = await $authHost.post('api/changeNick',{nick})
+    const { data } = await $authHost.post('api/changeNick', { nick })
     return data
 }
 export const changeEmail = async (email) => {
-    const { data } = await $authHost.post('api/changeEmail',{email})
+    const { data } = await $authHost.post('api/changeEmail', { email })
     return data
 }
-export const changePassword = async (password,passwordtwo) => {
-    const { data } = await $authHost.post('api/changePassword',{password,passwordtwo})
+export const changePassword = async (password, passwordtwo) => {
+    const { data } = await $authHost.post('api/changePassword', { password, passwordtwo })
     return data
 }
 export const sendAnswer = async (commentId, text) => {
-    const { data } = await $authHost.post('api/sendAnswer',{commentId, text})
+    const { data } = await $authHost.post('api/sendAnswer', { commentId, text })
     return data
 }
 export const changeavata = async (avatar) => {
-    alert(avatar)
-    const { data } = await $authHost.post('api/changeavatar',{avatar})
+    const { data } = await $authHost.post('api/changeavatar', { avatar })
+    return data
+}
+export const getposts = async () => {
+    const { data } = await $host.get('api/getposts')
+    return data
+}
+
+export const newblogpost = async (title, text, namefile) => {
+    const { data } = await $authHost.post('api/blogpost', {title, text, namefile})
+    return data
+}
+
+export const getblogpost = async () => {
+    const { data } = await $host.get('api/blogpost')
+    return data
+}
+
+export const OneBlogPost = async (id) => {
+    const { data } = await $host.get(`api/oneblogpost?id=${id}`)
     return data
 }
