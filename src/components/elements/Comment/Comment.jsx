@@ -36,14 +36,14 @@ const Comment = ({ comment, po }) => {
                                 <div class="accordion">
                                     <div class="tab">
                                         <input type="checkbox" id={comment[0]._id} name="tab-group"></input>
-                                        <label for={comment[0]._id} class='btn btn-primary' >comment</label>
+                                        <label for={comment[0]._id} class='btn btn-primary' >Ответить</label>
                                         <section class="tab-content">
                                             <textarea className='textar'
                                                 value={ccomment}
                                                 onChange={e => setCcomment(e.target.value)}
                                             ></textarea>
                                             <br></br>
-                                            <button class="btn btn-primary me-md-2" type="button" onClick={SendANS}>Добавить коммент</button>
+                                            <button class="btn btn-primary me-md-2" type="button" onClick={SendANS}>Отправить</button>
                                         </section>
                                     </div>
                                 </div>

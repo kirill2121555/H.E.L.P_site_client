@@ -59,10 +59,7 @@ const Profil = observer(() => {
                         <NavLink to={'/addneedhelp'}><button class="btn btn-primary" type="button">Добавить пост в категории "Нужна помошь"</button></NavLink>
                     </div>
                     <br></br>
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <NavLink to={'/addblogpost'}><button class="btn btn-primary" type="button">Добавить статью в блог</button></NavLink>
-                    </div>
-                    <br></br>
+                
 
                     {user.role === 'MODERATOR'
                         ?

@@ -74,10 +74,10 @@ export const publicRoutes = [
         path: "/removePassword/:id",
         Element: <RemovePassword />
     },
-    {
+   /* {
         path: "/main",
         Element: <MainPage />
-    },
+    },*/
 ]
 
 export const authRoutes = [
@@ -133,7 +133,7 @@ export const authRoutes = [
         path: "/setings",
         Element: < Setings />
     },
-    {
+  /*  {
         path: "/main",
         Element: <MainPage />
     },
@@ -144,5 +144,5 @@ export const authRoutes = [
     {
         path: "/blogpost/:id",
         Element: <FullBlogPost />
-    },
+    },*/
 ]

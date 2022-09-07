@@ -59,24 +59,24 @@ const Setings = (() => {
             <br></br>
 
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Изиенить Аватар
+                Изменить Аватар
             </button>
             <br></br>
             <div>
                 Имя: {info.nick}
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                    Изиенить имя
+                Изменить имя
                 </button>
                 <br></br>
 
                 Email: {info.email}
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal3">
-                    Изменить Email
+                Изменить Email
                 </button>
                 <br></br>
                 ************
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal4">
-                    Изменить пароль
+                Изменить пароль
                 </button>
                 <br></br>
             </div>

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const $host = axios.create({  
-    baseURL: 'https://serverrr.vercel.app/'     //' https://serverrr.vercel.app/
+    baseURL: 'https://serverrr.vercel.app/'     //' https://serverrr.vercel.app/   http://localhost:5000/
 })
 
 const $authHost = axios.create({
